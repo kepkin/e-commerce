@@ -1,4 +1,13 @@
 <div>
-	<input [(ngModel)]="currentItem"  placeholder="name"/><span (click)="addItem(currentItem)"> add </span>
+	<input [(ngModel)]="currentItem"  placeholder="name"/><span (click)="addItem(currentItem)"> add </span> <span (click)="subItem(currentItem)"> sub </span>
 
+	<ul>
+	  <li *ngFor="let item of getItems()">
+	    <span class="badge">{{item.id}}</span> - [{{item.count}}] - {{item.price.amount}},{{item.price.cents}}
+	  </li>
+	</ul>
 </div>
+<div>
+	Total: {{cartService.getTotal().amount}}
+</div>
+<span (click)="delmeTest()"> Make Deal</span>
